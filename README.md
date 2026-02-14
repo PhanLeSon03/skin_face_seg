@@ -14,9 +14,7 @@ python download_ffhq.py --images
 
 ## Training Process
 
-The training consists of two main stages:
 
-### Face Skin Extraction
 - **Goal**: Train on a large-scale **auto-labeled** dataset (~50K images).
 - **Script**: `train.py`
 
@@ -28,24 +26,22 @@ Epoch [20/20], Loss: 0.0145
 Saved checkpoint: checkpoints/model_epoch_20.pth
 
 
-```
 ## File Descriptions
 
-| File | Description                                                                                                           |
-|------|-----------------------------------------------------------------------------------------------------------------------|
-| `copy_files.py` | Copies manually labeled images from sub-folder structure `images1024x1024/` to a flat folder `manual_wrinkle_images/`. |
-                                     |
-| `dataset_full.py` | Handles dataset loading from a **sub-folder structure** .                                   |
-| `train.py` | Training script for Stage 1 using auto-labeled dataset.                                               
-                           |
-| `test_skin_segmentaion.py` | run example                                                                               |
-|`striped_wrinet.py`| model architecture                                                                                                    |
+| File | Description |
+|------|------------|
+| `copy_files.py` | Copies manually labeled images from the sub-folder structure `images1024x1024/` into a flat folder `manual_wrinkle_images/`. |
+| `dataset_full.py` | Dataset loader that supports loading data from a hierarchical sub-folder structure. |
+| `train.py` | Training script for Stage 1 using the auto-labeled dataset. |
+| `test_skin_segmentaion.py` | Example script for running inference. |
+| `striped_wrinet.py` | Implementation of the StripedWriNet model architecture. |
+
 ---
+                                                                        |
 ## Dataset
-```
 data_wrinkle/
 ├── images1024x1024/              # ~70K original facial images in sub-folder structure
 ├── weak_wrinkle_masks/           # ~50K auto-labeled wrinkle masks (Stage 1)
 
-```
+
 
